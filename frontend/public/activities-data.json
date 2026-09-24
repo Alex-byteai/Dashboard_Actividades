@@ -1,0 +1,392 @@
+{
+  "activities": [
+    {
+      "id": "ACT-002",
+      "ejecucionId": "EJE-2026-0911-002",
+      "activity": "Actualización del Dashboard de revistas",
+      "description": "Agregar y/o retirar registros de revistas.",
+      "category": "Gestión de información",
+      "periodicity": "Semanal",
+      "priority": "Alta",
+      "responsible": "César Montoya",
+      "participants": [],
+      "periodo": "2026-09",
+      "assigned": "11/09/2026",
+      "due": "11/09/2026",
+      "completed": null,
+      "status": "En curso",
+      "flowProgress": 80,
+      "result": "Nuevas cards de revistas en el dashborad",
+      "nextAction": "Verificación de la visualización de nuevas revistas en el dashboard.",
+      "blockers": "Dependecia del excel de registro de revista",
+      "evidence": "Excel de registro de revistas evaluadas con datos actualizados.",
+      "steps": [
+        {
+          "id": "PAS-013",
+          "desc": "Revisar los registros de revistas por agregar o retirar",
+          "weight": 20,
+          "estado": "Completado",
+          "porcentaje": 1.0
+        },
+        {
+          "id": "PAS-014",
+          "desc": "Validar la información de cada revista",
+          "weight": 30,
+          "estado": "Completado",
+          "porcentaje": 1.0
+        },
+        {
+          "id": "PAS-015",
+          "desc": "Actualizar el registro maestro de revistas",
+          "weight": 30,
+          "estado": "Completado",
+          "porcentaje": 1.0
+        },
+        {
+          "id": "PAS-016",
+          "desc": "Verificar la visualización en el dashboard",
+          "weight": 20,
+          "estado": "Pendiente",
+          "porcentaje": 0.0
+        }
+      ],
+      "executions": [
+        {
+          "id": "EJE-2026-0911-002",
+          "periodo": "2026-09",
+          "status": "En curso",
+          "assigned": "11/09/2026",
+          "due": "11/09/2026",
+          "completed": "11/09/2026"
+        }
+      ]
+    },
+    {
+      "id": "ACT-003",
+      "ejecucionId": "EJE-2026-0923-001",
+      "activity": "Actualización del Dashboard de congresos",
+      "description": "Agregar nuevos registros de congresos.",
+      "category": "Gestión de información",
+      "periodicity": "Semanal",
+      "priority": "Alta",
+      "responsible": "César Montoya",
+      "participants": [],
+      "periodo": "2026-09",
+      "assigned": "23/09/2026",
+      "due": "23/09/2026",
+      "completed": null,
+      "status": "No iniciada",
+      "flowProgress": 0,
+      "result": "Nuevas cards de congresos en el dashborad",
+      "nextAction": "Verificación de la visualización de nuevos congresos en el dashboard.",
+      "blockers": "Dependecia de la lista de congresos",
+      "evidence": "Excel de lista de congresos evaluados con datos actualizados.",
+      "steps": [
+        {
+          "id": "PAS-017",
+          "desc": "Revisar los nuevos registros de congresos",
+          "weight": 20,
+          "estado": "Pendiente",
+          "porcentaje": 0.0
+        },
+        {
+          "id": "PAS-018",
+          "desc": "Validar la información de cada congreso",
+          "weight": 30,
+          "estado": "Pendiente",
+          "porcentaje": 0.0
+        },
+        {
+          "id": "PAS-019",
+          "desc": "Actualizar el registro maestro de congresos",
+          "weight": 30,
+          "estado": "Pendiente",
+          "porcentaje": 0.0
+        },
+        {
+          "id": "PAS-020",
+          "desc": "Verificar la visualización en el dashboard",
+          "weight": 20,
+          "estado": "Pendiente",
+          "porcentaje": 0.0
+        }
+      ],
+      "executions": [
+        {
+          "id": "EJE-2026-0923-001",
+          "periodo": "2026-09",
+          "status": "No iniciada",
+          "assigned": "23/09/2026",
+          "due": "23/09/2026",
+          "completed": "23/09/2026"
+        },
+        {
+          "id": "EJE-2026-0911-003",
+          "periodo": "2026-09",
+          "status": "Culminada",
+          "assigned": "11/09/2026",
+          "due": "11/09/2026",
+          "completed": "11/09/2026"
+        }
+      ]
+    },
+    {
+      "id": "ACT-004",
+      "ejecucionId": "EJE-2026-0923-002",
+      "activity": "Actualización mensual de citas de publicaciones científicas",
+      "description": "Identificación, extracción y consolidación mensual de las citas recibidas en 2026 por las publicaciones científicas con afiliación a la Universidad de Lima, registradas en Scopus y Web of Science.",
+      "category": "Bibliometría e indicadores científicos",
+      "periodicity": "Mensual",
+      "priority": "Alta",
+      "responsible": "Joselyn Lopez Ramirez",
+      "participants": [
+        "César Montoya"
+      ],
+      "periodo": "2026-09",
+      "assigned": "01/09/2026",
+      "due": "08/09/2026",
+      "completed": null,
+      "status": "No iniciada",
+      "flowProgress": 0,
+      "result": "-",
+      "nextAction": "-",
+      "blockers": "-",
+      "evidence": "-",
+      "steps": [
+        {
+          "id": "PAS-021",
+          "desc": "Exportación de indicadores de citación de las publicaciones históricas con afiliación Ulima en Scopus.",
+          "weight": 5,
+          "estado": "Pendiente",
+          "porcentaje": 0.0
+        },
+        {
+          "id": "PAS-022",
+          "desc": "Exportación del histórico de publicaciones con afiliación Ulima en Scopus.",
+          "weight": 5,
+          "estado": "Pendiente",
+          "porcentaje": 0.0
+        },
+        {
+          "id": "PAS-023",
+          "desc": "Vinculación de identificadores de publicaciones con sus respectivos registros de citación.",
+          "weight": 25,
+          "estado": "Pendiente",
+          "porcentaje": 0.0
+        },
+        {
+          "id": "PAS-024",
+          "desc": "Integración de indicadores de citación al dataset histórico de publicaciones Ulima.",
+          "weight": 5,
+          "estado": "Pendiente",
+          "porcentaje": 0.0
+        },
+        {
+          "id": "PAS-025",
+          "desc": "Exportación de indicadores de citación de las publicaciones históricas con afiliación Ulima en WoS.",
+          "weight": 5,
+          "estado": "Pendiente",
+          "porcentaje": 0.0
+        },
+        {
+          "id": "PAS-026",
+          "desc": "Exportación del histórico de publicaciones con afiliación Ulima en WoS.",
+          "weight": 5,
+          "estado": "Pendiente",
+          "porcentaje": 0.0
+        },
+        {
+          "id": "PAS-027",
+          "desc": "Vinculación de identificadores de publicaciones con sus respectivos registros de citación.",
+          "weight": 25,
+          "estado": "Pendiente",
+          "porcentaje": 0.0
+        },
+        {
+          "id": "PAS-028",
+          "desc": "Integración de indicadores de citación Wos al dataset histórico de publicaciones Ulima.",
+          "weight": 5,
+          "estado": "Pendiente",
+          "porcentaje": 0.0
+        },
+        {
+          "id": "PAS-029",
+          "desc": "Comparación y consolidación de citas entre Scopus y Web of Science.",
+          "weight": 20,
+          "estado": "Pendiente",
+          "porcentaje": 0.0
+        }
+      ],
+      "executions": [
+        {
+          "id": "EJE-2026-0923-002",
+          "periodo": "2026-09",
+          "status": "No iniciada",
+          "assigned": "01/09/2026",
+          "due": "08/09/2026",
+          "completed": "15/09/2026"
+        }
+      ]
+    },
+    {
+      "id": "ACT-005",
+      "ejecucionId": null,
+      "activity": "Actualización y registro de indicadores KPI IDIC",
+      "description": "Procesamiento, análisis y actualización mensual de citas para indicadores institucionales.",
+      "category": "Bibliometría e indicadores científicos",
+      "periodicity": "Mensual",
+      "priority": "Alta",
+      "responsible": "Joselyn Lopez Ramirez",
+      "participants": [],
+      "periodo": null,
+      "assigned": null,
+      "due": null,
+      "completed": null,
+      "status": "No iniciada",
+      "flowProgress": 0,
+      "result": null,
+      "nextAction": null,
+      "blockers": null,
+      "evidence": null,
+      "steps": [],
+      "executions": []
+    },
+    {
+      "id": "ACT-001",
+      "ejecucionId": "EJE-2026-0901-001",
+      "activity": "Actualización mensual de publicaciones científicas",
+      "description": "Identificación, extracción y consolidación de publicaciones científicas con afiliación a la Universidad de Lima en Scopus, Web of Science y SciELO.",
+      "category": "Gestión de publicaciones científicas",
+      "periodicity": "Mensual",
+      "priority": "Alta",
+      "responsible": "Joselyn Lopez Ramirez",
+      "participants": [
+        "César Montoya"
+      ],
+      "periodo": "2026-09",
+      "assigned": "02/09/2026",
+      "due": "08/09/2026",
+      "completed": "04/09/2026",
+      "status": "Culminada",
+      "flowProgress": 100,
+      "result": "Identificación y validación de los autores con afiliación Ulima en las publicaciones recopiladas.",
+      "nextAction": "Revisar el historial de publicaciones de los autores para complementar y validar su identificación.",
+      "blockers": "Solicitar información a las unidades correspondientes para completar datos no identificados.",
+      "evidence": "Reporte por correo de publicaciones nuevas y autores Ulima identificados en agosto.",
+      "steps": [
+        {
+          "id": "PAS-001",
+          "desc": "Búsqueda de publicaciones con afiliación Universidad de Lima en Scopus, Web of Science y SciELO",
+          "weight": 5,
+          "estado": "Completado",
+          "porcentaje": 1.0
+        },
+        {
+          "id": "PAS-002",
+          "desc": "Selección de metadatos a exportar por base de datos",
+          "weight": 2,
+          "estado": "Completado",
+          "porcentaje": 1.0
+        },
+        {
+          "id": "PAS-003",
+          "desc": "Exportación de metadatos en archivo CSV",
+          "weight": 3,
+          "estado": "Completado",
+          "porcentaje": 1.0
+        },
+        {
+          "id": "PAS-004",
+          "desc": "Importación de metadatos al dataset de publicaciones Ulima",
+          "weight": 5,
+          "estado": "Completado",
+          "porcentaje": 1.0
+        },
+        {
+          "id": "PAS-005",
+          "desc": "Revisión manual de publicaciones no repetidas",
+          "weight": 5,
+          "estado": "Completado",
+          "porcentaje": 1.0
+        },
+        {
+          "id": "PAS-006",
+          "desc": "Identificación de duplicados no detectados por diferencias de caracteres",
+          "weight": 10,
+          "estado": "Completado",
+          "porcentaje": 1.0
+        },
+        {
+          "id": "PAS-007",
+          "desc": "Consolidación y asignación de IDs según la base de indexación",
+          "weight": 10,
+          "estado": "Completado",
+          "porcentaje": 1.0
+        },
+        {
+          "id": "PAS-008",
+          "desc": "Integración de metadatos variables de Scopus",
+          "weight": 10,
+          "estado": "Completado",
+          "porcentaje": 1.0
+        },
+        {
+          "id": "PAS-009",
+          "desc": "Integración de metadatos variables de Web of Science",
+          "weight": 10,
+          "estado": "Completado",
+          "porcentaje": 1.0
+        },
+        {
+          "id": "PAS-010",
+          "desc": "Integración de metadatos variables de SciELO",
+          "weight": 5,
+          "estado": "Completado",
+          "porcentaje": 1.0
+        },
+        {
+          "id": "PAS-011",
+          "desc": "Seguimiento de publicaciones AIP (Article in press)",
+          "weight": 5,
+          "estado": "Completado",
+          "porcentaje": 1.0
+        },
+        {
+          "id": "PAS-012",
+          "desc": "Registro de datos del autor Ulima y asignación a la dependencia correspondiente",
+          "weight": 30,
+          "estado": "Completado",
+          "porcentaje": 1.0
+        }
+      ],
+      "executions": [
+        {
+          "id": "EJE-2026-0901-001",
+          "periodo": "2026-09",
+          "status": "Culminada",
+          "assigned": "02/09/2026",
+          "due": "08/09/2026",
+          "completed": "04/09/2026"
+        }
+      ]
+    }
+  ],
+  "integrantes": [
+    {
+      "nombre": "César Montoya",
+      "cargo": "Practicante"
+    },
+    {
+      "nombre": "Jose Rosales",
+      "cargo": "Coordinador"
+    },
+    {
+      "nombre": "Joselyn Lopez Ramirez",
+      "cargo": "Gestora de desempeño investigativo"
+    },
+    {
+      "nombre": "Lucero Huaraca ",
+      "cargo": "Gestora de etica e integridad"
+    }
+  ]
+}
