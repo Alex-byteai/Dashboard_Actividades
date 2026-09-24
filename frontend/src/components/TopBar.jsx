@@ -1,7 +1,7 @@
 import React from 'react';
-import { ArrowsClockwise, CaretRight } from '@phosphor-icons/react';
+import { ArrowsClockwise, CaretRight, List, Users } from '@phosphor-icons/react';
 
-export function TopBar({ onRefresh, isLoading, lastUpdate, activeView }) {
+export function TopBar({ onRefresh, isLoading, lastUpdate, activeView, onToggleSidebar, onTogglePanel }) {
   const getBreadcrumb = () => {
     switch (activeView) {
       case 'dashboard': return 'Dashboard Principal';
@@ -42,6 +42,12 @@ export function TopBar({ onRefresh, isLoading, lastUpdate, activeView }) {
   return (
     <header className="topbar">
       <div className="topbar-left">
+        {/* Botón hamburguesa - solo visible en móvil */}
+        {onToggleSidebar && (
+          <button className="mobile-toggle-btn" onClick={onToggleSidebar} aria-label="Abrir menú">
+            <List size={22} weight="bold" />
+          </button>
+        )}
         <h1 className="topbar-title">Centro de Control</h1>
         <div className="topbar-breadcrumb">
           IDIC <CaretRight size={12} weight="bold" style={{ margin: '0 4px', verticalAlign: 'middle' }} /> {getBreadcrumb()}
@@ -67,6 +73,12 @@ export function TopBar({ onRefresh, isLoading, lastUpdate, activeView }) {
           />
           {isLoading ? 'Actualizando...' : 'Actualizar'}
         </button>
+        {/* Botón equipo - solo visible en móvil */}
+        {onTogglePanel && (
+          <button className="mobile-toggle-btn" onClick={onTogglePanel} aria-label="Ver equipo">
+            <Users size={22} weight="bold" />
+          </button>
+        )}
       </div>
     </header>
   );

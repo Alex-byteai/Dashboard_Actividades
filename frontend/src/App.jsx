@@ -31,6 +31,8 @@ export default function App() {
   const [filters, setFilters] = useState(initialFilters);
   const [activeView, setActiveView] = useState('dashboard');
   const [selectedId, setSelectedId] = useState(null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [panelOpen, setPanelOpen] = useState(false);
   
   // Inicializar actividad destacada desde localStorage
   const [featuredId, setFeaturedId] = useState(() => {
@@ -119,10 +121,13 @@ export default function App() {
       <div className="app-shell">
         <Sidebar 
           activeView={activeView} 
-          onChangeView={setActiveView} 
+          onChangeView={(v) => { setActiveView(v); setSidebarOpen(false); }} 
           dataSource={dataSource} 
           alertCount={alerts.length}
+          isOpen={sidebarOpen}
+          onClose={() => setSidebarOpen(false)}
         />
+        {sidebarOpen && <div className="mobile-overlay" onClick={() => setSidebarOpen(false)} />}
         
         <div className="main-wrapper">
           <TopBar 
@@ -130,6 +135,8 @@ export default function App() {
             isLoading={refreshing} 
             lastUpdate={lastUpdated} 
             activeView={activeView}
+            onToggleSidebar={() => setSidebarOpen(prev => !prev)}
+            onTogglePanel={() => setPanelOpen(prev => !prev)}
           />
           
           <div className="main-content-area">
@@ -204,7 +211,8 @@ export default function App() {
 
             </main>
 
-            <RightPanel activities={allActivities} teamMembers={teamMembers} />
+            <RightPanel activities={allActivities} teamMembers={teamMembers} isOpen={panelOpen} onClose={() => setPanelOpen(false)} />
+            {panelOpen && <div className="mobile-overlay" onClick={() => setPanelOpen(false)} />}
           </div>
         </div>
       </div>

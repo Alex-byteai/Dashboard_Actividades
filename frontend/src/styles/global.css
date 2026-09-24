@@ -2061,18 +2061,80 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
+   Mobile Toggle Buttons (hidden on desktop)
+   ========================================================================== */
+
+.mobile-toggle-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.mobile-toggle-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-pale);
+}
+
+.mobile-overlay {
+  display: none;
+}
+
+/* ==========================================================================
    Responsive
    ========================================================================== */
 
 @media (max-width: 1200px) {
   .main-right-panel {
-    display: none;
+    position: fixed;
+    top: 0;
+    right: -320px;
+    width: 300px;
+    height: 100vh;
+    z-index: 200;
+    transition: right 0.3s var(--ease-out);
+    box-shadow: none;
+    max-height: 100vh;
+  }
+  .main-right-panel.panel-open {
+    right: 0;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+  }
+  .mobile-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(2px);
+    z-index: 150;
+    animation: fadeIn 0.2s ease;
+  }
+  .mobile-toggle-btn {
+    display: flex;
   }
 }
 
 @media (max-width: 768px) {
   .sidebar {
-    display: none;
+    left: -260px;
+    transition: left 0.3s var(--ease-out);
+    z-index: 200;
+  }
+  .sidebar.sidebar-open {
+    left: 0;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.15);
   }
   .main-wrapper {
     margin-left: 0;
@@ -2086,4 +2148,57 @@ button, input, select, textarea {
   .main-center {
     padding: 1rem;
   }
+  .topbar {
+    height: auto;
+    min-height: var(--topbar-height);
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .topbar-breadcrumb {
+    display: none;
+  }
+  .topbar-date {
+    display: none;
+  }
+  .topbar-left {
+    gap: 0.5rem;
+  }
+  .topbar-right {
+    gap: 0.5rem;
+  }
+  .topbar-title {
+    font-size: 0.95rem;
+  }
+  .topbar-refresh-btn span,
+  .topbar-refresh-btn {
+    font-size: 0;
+    padding: 0.4rem;
+    gap: 0;
+  }
+  .topbar-refresh-btn svg {
+    font-size: initial;
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 576px) {
+  .kpi-widgets-row {
+    grid-template-columns: 1fr;
+  }
+  .modern-activity-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .modern-card-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

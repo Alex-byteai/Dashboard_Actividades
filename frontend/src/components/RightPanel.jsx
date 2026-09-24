@@ -1,7 +1,7 @@
 import React from 'react';
 import { Users, ChartBar } from '@phosphor-icons/react';
 
-export function RightPanel({ activities, teamMembers = [] }) {
+export function RightPanel({ activities, teamMembers = [], isOpen = false, onClose }) {
   // Calcular cuántas actividades En Curso tiene cada persona
   const activeActivities = activities.filter(a => {
     const s = a.status?.toLowerCase() || '';
@@ -63,7 +63,7 @@ export function RightPanel({ activities, teamMembers = [] }) {
   };
 
   return (
-    <aside className="main-right-panel">
+    <aside className={`main-right-panel ${isOpen ? 'panel-open' : ''}`}>
       <div className="panel-section">
         <h3 className="panel-section-title" style={{ marginBottom: '1.25rem' }}>
           <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>

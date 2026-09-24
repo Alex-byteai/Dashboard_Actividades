@@ -1,5 +1,5 @@
 import React from 'react';
-import { CaretRight, ChartDonut, Heartbeat, ShieldWarning, PresentationChart, CheckCircle, Star } from '@phosphor-icons/react';
+import { CaretRight, ChartDonut, TrendUp, ShieldWarning, PresentationChart, CheckCircle, Star } from '@phosphor-icons/react';
 
 export function DashboardWidgets({ metrics, activities, featuredActivity, onSelectActivity }) {
   // Calcular distribución de categorías
@@ -33,11 +33,11 @@ export function DashboardWidgets({ metrics, activities, featuredActivity, onSele
         
         <div className="kpi-widget widget-glow-hover">
           <div className="kpi-widget-icon" style={{ background: '#ECFDF5', color: '#10B981' }}>
-            <Heartbeat size={24} weight="duotone" />
+            <TrendUp size={24} weight="duotone" />
           </div>
           <div className="kpi-widget-body">
-            <div className="kpi-widget-value">{metrics.healthScore}%</div>
-            <div className="kpi-widget-label">Eficiencia de Ejecución</div>
+            <div className="kpi-widget-value">{metrics.avgProgress}%</div>
+            <div className="kpi-widget-label">Avance Global</div>
           </div>
         </div>
         

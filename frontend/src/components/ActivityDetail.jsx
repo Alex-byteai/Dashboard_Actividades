@@ -3,6 +3,19 @@ import {
   X, Flag, Users, ListChecks, WarningCircle, CheckCircle, Info, Star, ClockCounterClockwise
 } from '@phosphor-icons/react';
 
+// Funciones de avatar compartidas (misma lógica que RightPanel)
+const getInitials = (name) => {
+  if (!name || name === 'Sin Asignar') return '?';
+  return name.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+};
+
+const getAvatarColor = (name) => {
+  if (!name || name === 'Sin Asignar') return '#94A3B8';
+  const colors = ['#3B82F6', '#10B981', '#F59E0B', '#8B5CF6', '#EC4899', '#14B8A6'];
+  const charCode = name.charCodeAt(0) || 0;
+  return colors[charCode % colors.length];
+};
+
 export function ActivityDetail({ activity, onClose, onToggleFeatured, isFeatured }) {
   const [activeTab, setActiveTab] = useState('ejecucion');
 
@@ -31,24 +44,24 @@ export function ActivityDetail({ activity, onClose, onToggleFeatured, isFeatured
       position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', 
       background: 'rgba(15, 23, 42, 0.4)', backdropFilter: 'blur(4px)',
       display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000,
-      padding: '2rem'
+      padding: 'clamp(0.5rem, 2vw, 2rem)'
     }}>
       <div 
         onClick={(e) => e.stopPropagation()}
         style={{
           background: 'var(--card-bg)', width: '100%', maxWidth: '900px', 
-          maxHeight: '90vh', borderRadius: 'var(--radius-xl)', 
+          maxHeight: '95vh', borderRadius: 'var(--radius-xl)', 
           display: 'flex', flexDirection: 'column', overflow: 'hidden',
           boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
         }}
       >
         {/* Header */}
-        <div style={{
-          padding: '2rem 2.5rem 1.5rem', borderBottom: '1px solid var(--border)',
-          display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '2rem'
+        <div className="detail-header" style={{
+          padding: 'clamp(1rem, 3vw, 2rem) clamp(1rem, 3vw, 2.5rem) clamp(0.75rem, 2vw, 1.5rem)', borderBottom: '1px solid var(--border)',
+          display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '1rem'
         }}>
-          <div style={{ flex: 1 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem', flexWrap: 'wrap' }}>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem', flexWrap: 'wrap' }}>
               <span className="strip-id">{activity.id}</span>
               <span className={`badge ${statusClass}`}>{activity.status}</span>
               {activity.priority && (
@@ -57,7 +70,7 @@ export function ActivityDetail({ activity, onClose, onToggleFeatured, isFeatured
                 </span>
               )}
             </div>
-            <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--primary)', lineHeight: 1.3, marginBottom: '0.5rem' }}>
+            <h2 style={{ fontSize: 'clamp(1rem, 3vw, 1.4rem)', fontWeight: 800, color: 'var(--primary)', lineHeight: 1.3, marginBottom: '0.5rem' }}>
               {activity.activity || activity.title}
             </h2>
             <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', lineHeight: 1.5 }}>
@@ -91,7 +104,7 @@ export function ActivityDetail({ activity, onClose, onToggleFeatured, isFeatured
               </button>
             </div>
             <div style={{ textAlign: 'right' }}>
-              <div style={{ fontSize: '2rem', fontWeight: 900, color: 'var(--accent)', fontFamily: 'var(--font-mono)', lineHeight: 1 }}>
+              <div style={{ fontSize: 'clamp(1.4rem, 4vw, 2rem)', fontWeight: 900, color: 'var(--accent)', fontFamily: 'var(--font-mono)', lineHeight: 1 }}>
                 {p}%
               </div>
               <div style={{ fontSize: '0.7rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--text-muted)', letterSpacing: '0.05em' }}>
@@ -101,8 +114,8 @@ export function ActivityDetail({ activity, onClose, onToggleFeatured, isFeatured
           </div>
         </div>
 
-        {/* Tabs */}
-        <div style={{ display: 'flex', padding: '0 2.5rem', borderBottom: '1px solid var(--border)', background: 'var(--card-bg-alt)' }}>
+        {/* Tabs - scrollable on mobile */}
+        <div style={{ display: 'flex', padding: '0 clamp(1rem, 3vw, 2.5rem)', borderBottom: '1px solid var(--border)', background: 'var(--card-bg-alt)', overflowX: 'auto', WebkitOverflowScrolling: 'touch', scrollbarWidth: 'none' }}>
           {[
             { id: 'ejecucion', label: 'Ejecución Actual', icon: Info },
             { id: 'pasos', label: 'Flujo de Pasos', icon: ListChecks },
@@ -113,11 +126,11 @@ export function ActivityDetail({ activity, onClose, onToggleFeatured, isFeatured
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               style={{
-                display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.85rem 1.25rem',
+                display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.85rem 1rem',
                 background: 'none', border: 'none', borderBottom: `2.5px solid ${activeTab === tab.id ? 'var(--accent)' : 'transparent'}`,
                 color: activeTab === tab.id ? 'var(--accent)' : 'var(--text-secondary)',
-                fontWeight: activeTab === tab.id ? 700 : 600, fontSize: '0.84rem', cursor: 'pointer',
-                transition: 'all 0.15s ease'
+                fontWeight: activeTab === tab.id ? 700 : 600, fontSize: '0.82rem', cursor: 'pointer',
+                transition: 'all 0.15s ease', whiteSpace: 'nowrap', flexShrink: 0
               }}
             >
               <tab.icon size={18} /> {tab.label}
@@ -127,7 +140,7 @@ export function ActivityDetail({ activity, onClose, onToggleFeatured, isFeatured
         </div>
 
         {/* Body */}
-        <div style={{ flex: 1, overflowY: 'auto', padding: '2rem 2.5rem' }}>
+        <div style={{ flex: 1, overflowY: 'auto', padding: 'clamp(1rem, 3vw, 2rem) clamp(1rem, 3vw, 2.5rem)' }}>
           
           {/* TAB: Ejecución Actual */}
           {activeTab === 'ejecucion' && (
@@ -256,11 +269,12 @@ export function ActivityDetail({ activity, onClose, onToggleFeatured, isFeatured
 
           {/* TAB: Participantes */}
           {activeTab === 'participantes' && (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '1rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))', gap: '1rem' }}>
               
+              {/* Responsable Principal */}
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem', background: 'var(--accent-pale)', borderRadius: 'var(--radius-md)', border: '1px solid color-mix(in srgb, var(--accent) 20%, transparent)' }}>
-                <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: 'var(--accent)', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700 }}>
-                  {activity.responsible ? activity.responsible.substring(0,2).toUpperCase() : '?'}
+                <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: getAvatarColor(activity.responsible), color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: '0.8rem', flexShrink: 0 }}>
+                  {getInitials(activity.responsible)}
                 </div>
                 <div>
                   <div style={{ fontWeight: 700, color: 'var(--primary)', fontSize: '0.9rem' }}>{activity.responsible || 'Sin asignar'}</div>
@@ -268,10 +282,11 @@ export function ActivityDetail({ activity, onClose, onToggleFeatured, isFeatured
                 </div>
               </div>
 
+              {/* Participantes */}
               {participants.map((pName, idx) => (
                 <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '1rem', padding: '1rem', background: 'var(--card-bg)', borderRadius: 'var(--radius-md)', border: '1px solid var(--border)' }}>
-                  <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: '#E2E8F0', color: 'var(--text-secondary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700 }}>
-                    {pName ? pName.substring(0,2).toUpperCase() : '?'}
+                  <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: getAvatarColor(pName), color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: '0.8rem', flexShrink: 0 }}>
+                    {getInitials(pName)}
                   </div>
                   <div>
                     <div style={{ fontWeight: 600, color: 'var(--text)', fontSize: '0.9rem' }}>{pName}</div>

@@ -8,7 +8,7 @@ import {
   HardDrive
 } from '@phosphor-icons/react';
 
-export function Sidebar({ activeView, onChangeView, dataSource, alertCount = 0 }) {
+export function Sidebar({ activeView, onChangeView, dataSource, alertCount = 0, isOpen = false, onClose }) {
   const navItems = [
     { id: 'dashboard', label: 'Dashboard', icon: SquaresFour },
     { id: 'actividades', label: 'Actividades', icon: ListChecks },
@@ -16,7 +16,7 @@ export function Sidebar({ activeView, onChangeView, dataSource, alertCount = 0 }
   ];
 
   return (
-    <aside className="sidebar">
+    <aside className={`sidebar ${isOpen ? 'sidebar-open' : ''}`}>
       <div className="sidebar-brand">
         <div className="sidebar-brand-icon">ID</div>
         <div className="sidebar-brand-text">
